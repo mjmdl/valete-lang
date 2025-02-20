@@ -1,0 +1,5 @@
+io :: #import ("IO")
+
+main :: func () {
+    io. print line ("Hello, World!")
+}

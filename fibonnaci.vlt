@@ -1,0 +1,24 @@
+env :: #import ("Environment")
+io :: #import ("IO")
+str :: #import ("String")
+
+fibonnaci :: func (n : u64) -> u64 {
+    prev : u64 = 0
+    next : u64 = 1
+    for (1 ..< n) {
+	curr := next
+	next += prev
+	prev = curr
+    }
+    return (prev)
+}
+
+main :: func () {
+    num := str.to_uint64(
+	if (env. argc > 1 && str. is <u64> (env. argv [1]))
+	    then (str. to <u64> (env. argv [1]))
+	    else (10)
+    for (x; 1 ..= num) {
+	io. print format ("fibonnaci of #{x} = {fibonnaci (x)}\n")
+    }
+}
